@@ -13,7 +13,6 @@ var Stack = function() {
   };
 
   someInstance.pop = function() {
-    
     if (counter > 0) {
       counter--;
     }
