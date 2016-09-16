@@ -16,13 +16,13 @@ var Stack = function() {
     
     if (counter > 0) {
       counter--;
-    };
+    }
 
     var toPop = storage[counter];
     delete storage[counter];
 
     return toPop;
-    
+
   };
 
   someInstance.size = function() {
