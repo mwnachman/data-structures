@@ -12,6 +12,10 @@ var Stack = function() {
     counter++;
   };
 
+<<<<<<< HEAD
+
+
+=======
   someInstance.pop = function() {
     if (counter > 0) {
       counter--;
@@ -19,6 +23,7 @@ var Stack = function() {
     var toPop = storage[counter];
     delete storage[counter];
     return toPop;
+>>>>>>> cb859f957777a3983e9aa67aae224ed4885c62c6
   };
 
   someInstance.size = function() {
@@ -26,4 +31,5 @@ var Stack = function() {
   };
 
   return someInstance;
+
 };

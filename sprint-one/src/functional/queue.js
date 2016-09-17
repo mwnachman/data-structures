@@ -1,10 +1,16 @@
 var Queue = function() {
   var someInstance = {};
 
+<<<<<<< HEAD
+  
+
+=======
   var counter = 0;
 
   var key = 0;
+>>>>>>> cb859f957777a3983e9aa67aae224ed4885c62c6
   // Use an object with numeric keys to store values
+
   var storage = {};
 
   // Implement the methods below
@@ -34,8 +40,12 @@ var Queue = function() {
   };
 
   someInstance.size = function() {
+<<<<<<< HEAD
+
+=======
     return counter;
+>>>>>>> cb859f957777a3983e9aa67aae224ed4885c62c6
   };
 
-  return someInstance;
+
 };
