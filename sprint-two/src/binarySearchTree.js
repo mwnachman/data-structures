@@ -9,9 +9,6 @@ BinarySearchTree.prototype.insert = function(value) {
   var node = new BinarySearchTree(value);
 
   //recursive function:
-  // if (node.root === undefined) {
-  //   node.root = this.value;
-  // }
 
   // if (value > node.root) {
   //   console.log('true', value);
