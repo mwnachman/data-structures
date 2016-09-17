@@ -1,4 +1,3 @@
-//
 
 var HashTable = function() {
   this._limit = 8;
@@ -6,52 +5,52 @@ var HashTable = function() {
 };
 
 HashTable.prototype.insert = function(k, v) {
-  // debugger;
-
   var index = getIndexBelowMaxForKey(k, this._limit);
+  var bucket = this._storage.get(index);
+  var toPass = [[k, v]]; 
+  var toPassWithoutExtraArray = [k, v];
+  var doesIt = false; 
 
-  var toPass; 
+  if (bucket !== undefined ) {
+    for (var i = 0; i < bucket.length; i++) {
+      if (bucket[i][0] === k) {
+        var blah = i;
+        doesIt = true;
+      }
+    }
+  }
 
-   if (this._storage[index] === undefined) {
-    toPass = [[k, v]];
-   } else {
-    toPass = [k, v];
-   }
+  if (bucket === undefined) {
+    bucket = toPass;
+  } else if (doesIt) {
+    bucket[blah] = toPassWithoutExtraArray;
+  } else {
+    bucket = bucket.concat(toPass);
+  }
 
-
-  // var tuple = [[k, v]];
-  // console.log(tuple);
-  // var temp = this._storage[index] = [];
-  // If masterstorage[index] === undefined, then masterstorage[index] = [];
-  // If masterstorage[index], then masterstorage[index].push([k, v])
-
-  // LimitedArray.storage
-
-  // console.log('index in insert before set', index);
-  // console.log('storage in insert before set', this._storage);
-  this._storage.set(index, toPass);
-
-  // console.log(this._storage[index][0], this._storage[index][1]);
-  // console.log('index in insert after set', index);
-  // console.log('storage in insert after set', this._storage);
+  this._storage.set(index, bucket);
 };
 
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  // console.log('index in retrieve', index);
-  // console.log('storage in retrieve', this._storage);
+  var bucket = this._storage.get(index); 
 
-
-
-  return this._storage.get(index[1]);
+  for (var i = 0; i < bucket.length; i++) {
+    if (bucket[i][0] === k) {
+      return bucket[i][1];
+    }
+  }
 };
 
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  // console.log('index in remove before remove', index);
-  // this.insert(k, undefined);
-  this._storage.set(index, undefined);
-  // console.log('index in remove after remove', index, this._storage);
+  var bucket = this._storage.get(index);
+  for (var i = 0; i < bucket.length; i++) {
+    if (bucket[i][0] === k) {
+      bucket[i][1] = undefined;
+    }
+  }
+
 };
 
 
