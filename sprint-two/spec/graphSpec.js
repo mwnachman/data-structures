@@ -25,7 +25,7 @@ describe('graph', function() {
     expect(graph.contains(2)).to.equal(true);
     graph.removeNode(2);
     expect(graph.contains(2)).to.equal(false);
-  });
+  }); 
 
   it('should create edges between two nodes', function() {
     graph.addNode(2);
@@ -43,7 +43,7 @@ describe('graph', function() {
     expect(graph.hasEdge(4, 5)).to.equal(true);
     graph.removeEdge(5, 4);
     expect(graph.hasEdge(4, 5)).to.equal(false);
-  });
+  });                                      
 
   it('should remove edges between nodes when a node is removed', function() {
     graph.addNode(4);

@@ -88,7 +88,7 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
 Graph.prototype.removeEdge = function(fromNode, toNode) {
 
   for (var i = 0; i < this.Edges.length; i++) {
-    console.log(this.Edges[i]);
+    // console.log(this.Edges[i]);
     if ((this.Edges[i].fromNode === fromNode && this.Edges[i].toNode === toNode) || 
       (this.Edges[i].toNode === fromNode && this.Edges[i].fromNode === toNode)) {
       this.Edges.splice(i, 1);
